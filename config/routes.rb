@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :hero_powers,only:[:create]
+  resources :heroes,only:[:index,:show] do
+    resources :powers, only: [:index]
+  end
+  
+  resources :powers,only:[:index,:show,:update]
 end
